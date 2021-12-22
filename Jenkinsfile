@@ -1,7 +1,3 @@
-import java.io.*
-import groovy.util.*
-import java.util.*
-import java.lang.*    
 pipeline{
     agent any
     stages{
@@ -21,6 +17,7 @@ pipeline{
         stage('find a word in the file'){
             steps {
                 script{
+                  import java.io.File
                   def lines = new File(file: 'README.md').readLines()
                   def output = lines.contains('java')
                   println output
