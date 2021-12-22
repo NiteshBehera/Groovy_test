@@ -17,9 +17,10 @@ pipeline{
         stage('find a word in the file'){
             steps {
                 script{
-                  def lines = new File(file: "README.md").readLines()
-                  def output = lines.findAll {it.contains('java')}
-                  println (output.toString()) 
+                  def lines = new File('README.md').readLines()
+                  def output = lines.findAll { it.contains('java') }
+                  println output.toString()
+                  
                 }
             }
         }
