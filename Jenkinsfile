@@ -1,3 +1,4 @@
+import java.io.File
 pipeline{
     agent any
     stages{
@@ -17,7 +18,6 @@ pipeline{
         stage('find a word in the file'){
             steps {
                 script{
-                  import java.io.File
                   def lines = new File(file: 'README.md').readLines()
                   def output = lines.contains('java')
                   println output
