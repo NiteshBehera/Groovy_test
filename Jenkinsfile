@@ -19,9 +19,8 @@ pipeline{
             steps {
                 script{
                   def lines = new File(file: 'README.md').readLines()
-                  def output = lines.contains('java')
-                  println output
-                  
+                  def output = lines.findAll { it.contains('java') }
+                  println output.toString()
                 }
             }
         }
