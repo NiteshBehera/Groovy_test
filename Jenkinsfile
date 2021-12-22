@@ -17,7 +17,7 @@ pipeline{
         stage('find error in the file'){
             steps {
                 script{
-                  import new java.io.* 
+                  new java.io.* 
                   def lines = new File(file: "README.md").readLines()
                   def output = lines.findAll {it.contains('java')}
                   println (output.toString()) 
