@@ -14,5 +14,14 @@ pipeline{
               }
             }
         }
+        stage('find error in the file'){
+            steps {
+                script{
+                  def lines = new File('README.md').readLines()
+                  def output = lines.findAll {it.contains('java')}
+                  println result*.toString() 
+                }
+            }
+        }
     }
 }
