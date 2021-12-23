@@ -1,0 +1,16 @@
+def xml = '''
+<AS Name="123">
+    <Config Name="Configuration1">
+        <Servers>
+            <Server Name="server1"/>
+            <Server Name="server2"/>
+            <Server Name="server3"/>
+            <Server Name="server4"/>
+         </Servers>
+    </Config>
+</AS>
+'''
+def readxml = new XmlSlurper().parseText(xml) 
+readxml.Config.Servers.Server.each {
+println it['@Name']
+}
